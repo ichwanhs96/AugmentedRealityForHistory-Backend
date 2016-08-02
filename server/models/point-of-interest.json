@@ -1,0 +1,38 @@
+{
+  "name": "PointOfInterest",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "location": {
+      "type": "geopoint",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "imageLink": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "Contents": {
+      "type": "hasMany",
+      "model": "Content",
+      "foreignKey": "pointOfInterestId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

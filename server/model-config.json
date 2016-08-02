@@ -1,0 +1,64 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "HistoryDB",
+    "public": false
+  },
+  "AccessToken": {
+    "dataSource": "HistoryDB",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "HistoryDB",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "HistoryDB",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "HistoryDB",
+    "public": false
+  },
+  "PointOfInterest": {
+    "dataSource": "HistoryDB",
+    "public": true
+  },
+  "History": {
+    "dataSource": "HistoryDB",
+    "public": true
+  },
+  "Reference": {
+    "dataSource": "HistoryDB",
+    "public": true
+  },
+  "Content": {
+    "dataSource": "HistoryDB",
+    "public": true
+  },
+  "UserForHistory": {
+    "dataSource": "HistoryDB",
+    "public": true
+  },
+  "HistoryContent": {
+    "dataSource": "HistoryDB",
+    "public": true
+  },
+  "Image": {
+    "dataSource": "HistoryDB",
+    "public": true
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "HistoryContent",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "position": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "histories": {
+      "type": "belongsTo",
+      "model": "History",
+      "foreignKey": "historyId"
+    },
+    "contents": {
+      "type": "belongsTo",
+      "model": "Content",
+      "foreignKey": "contentId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

@@ -1,0 +1,57 @@
+{
+  "name": "Content",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "videoLink": {
+      "type": "string"
+    },
+    "pointOfInterestId": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "pointOfInterests": {
+      "type": "belongsTo",
+      "model": "PointOfInterest",
+      "foreignKey": "pointOfInterestId"
+    },
+    "histories": {
+      "type": "hasMany",
+      "model": "History",
+      "foreignKey": "contentId",
+      "through": "HistoryContent"
+    },
+    "References": {
+      "type": "hasMany",
+      "model": "Reference",
+      "foreignKey": "contentId"
+    },
+    "Images": {
+      "type": "hasMany",
+      "model": "Image",
+      "foreignKey": "contentId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

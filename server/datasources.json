@@ -1,0 +1,12 @@
+{
+  "HistoryDB": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "",
+    "database": "HistoryDB",
+    "password": "",
+    "name": "HistoryDB",
+    "user": "",
+    "connector": "mongodb"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "name": "History",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "imageLink": {
+      "type": "string"
+    },
+    "videoLink": {
+      "type": "string"
+    },
+    "userForHistoryId": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "contents": {
+      "type": "hasMany",
+      "model": "Content",
+      "foreignKey": "historyId",
+      "through": "HistoryContent"
+    },
+    "pointOfInterests": {
+      "type": "belongsTo",
+      "model": "UserForHistory",
+      "foreignKey": "userForHistoryId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}
