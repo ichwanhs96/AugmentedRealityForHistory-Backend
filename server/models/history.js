@@ -86,6 +86,9 @@ module.exports = function(History) {
       if(err){
         return callback(err);
       }
+      if(histories.length == 0){
+        returnResponse();
+      }
       histories.forEach(function(history){
         var obj = JSON.parse(JSON.stringify(history));
         obj.contents = [];
