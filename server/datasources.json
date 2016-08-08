@@ -1,6 +1,6 @@
 {
   "HistoryDB": {
-    "host": "0.0.0.0",
+    "host": "localhost",
     "port": 27017,
     "url": "",
     "database": "HistoryDB",
