@@ -81,6 +81,7 @@ module.exports = function(History) {
     var HistoryContent = app.models.HistoryContent;
     var PointOfInterest = app.models.PointOfInterest;
     var UserForHistory = app.models.UserForHistory;
+    var Reference = app.models.Reference;
     var response = {histories:[]};
     History.find({}, function(err, histories){
       if(err){
@@ -107,13 +108,21 @@ module.exports = function(History) {
                 if(err){
                   return callback(err);
                 }
+                objContent.pointOfInterest = poi;
                 UserForHistory.findOne({where:{id:obj.userForHistoryId}}, function (err, user) {
                   if(err){
                     return callback(err);
                   }
                   obj.isTeacher = user.isTeacher;
-                  objContent.pointOfInterest = poi;
-                  pushContentToObj(obj, objContent, historyContents.length, histories.length);
+                  Reference.findOne({where: {contentId:content.id}}, function (err, reference) {
+                    if(err){
+                      return callback(err);
+                    }
+                    if(reference != null){
+                      objContent.reference = reference;
+                    }
+                    pushContentToObj(obj, objContent, historyContents.length, histories.length);
+                  });
                 });
               });
             });
