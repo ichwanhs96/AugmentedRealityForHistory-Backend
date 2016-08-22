@@ -16,6 +16,11 @@
     },
     "imageLink": {
       "type": "string"
+    },
+    "radius": {
+      "type": "number",
+      "required": true,
+      "default": 100
     }
   },
   "validations": [],
