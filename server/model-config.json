@@ -60,5 +60,9 @@
   "Image": {
     "dataSource": "HistoryDB",
     "public": true
+  },
+  "Container": {
+    "dataSource": "storage",
+    "public": true
   }
 }
